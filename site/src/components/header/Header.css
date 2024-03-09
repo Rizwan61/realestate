@@ -1,0 +1,14 @@
+
+.heroimage{
+    display: flex;
+    justify-content: end;
+}
+
+.heroimage img{
+    border-top-right-radius: 45%;
+    border-top-left-radius: 45%;
+    width: 70%;
+    min-height: auto;
+    
+   
+}
