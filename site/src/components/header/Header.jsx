@@ -11,19 +11,19 @@ import CountUp from 'react-countup';
 function Header() {
     const count = [
         {
-            id: 1,
+            id:3,
 
-            heading: "9,000",
+            heading: "9000",
             content: "Premium Product"
         },
         {
-            id: 2,
+            id:2,
 
-            heading: "2,000 ",
+            heading: "2000 ",
             content: "Happy Customer"
         },
         {
-            id: 3,
+            id:1,
 
             heading: "28 ",
             content: "Awards Winning"
@@ -52,13 +52,13 @@ function Header() {
                                 <button className="bg-blue-500 text-white py-3 px-5 rounded-r-md">Search</button>
                             </div>
                             <div class="">
-                                <div class="flex ">
+                                <div class="flex  gap-4">
                                     {
                                         count.map((item) => {
                                             return (<div key={item.id}>
                                                 <div class="  ">
 
-                                                    <div class="font-bold text-2xl my-3   ">
+                                                    <div class="font-bold text-2xl my-3 text-center  ">
                                                         <CountUp
 
                                                             start={0}
@@ -70,7 +70,7 @@ function Header() {
                                                         <span className='text-yellow-500'>+</span>
 
                                                     </div>
-                                                    <p class=" text-xl   dark:text-gray-500  ">{item.content}</p>
+                                                    <p class=" text-center   dark:text-gray-500  ">{item.content}</p>
                                                 </div>
 
 
@@ -88,7 +88,9 @@ function Header() {
 
                     <div className='heroimage'>
 
-                        <img src={heroimage} className='' alt="" />
+                       
+                            <img src={heroimage} className='' alt="" />
+                       
                     </div>
                 </div>
 
