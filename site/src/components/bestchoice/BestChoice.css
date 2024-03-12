@@ -1,0 +1,6 @@
+.box:hover{
+    scale: 1.025;
+    cursor: pointer;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(136, 160, 255, .46) 217.91%);
+    box-shadow: 0 72px 49px -51px #88a0ff36;
+}

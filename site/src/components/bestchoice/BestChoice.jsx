@@ -1,16 +1,55 @@
 import React from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react';
+import Slider from "react-slick";
 
 import image1 from '../../assets/images/1.jpg'
 import image2 from '../../assets/images/2.jpg'
 import image3 from '../../assets/images/3.jpg'
 import image4 from '../../assets/images/4.jpg'
 import image5 from '../../assets/images/5.jpg'
-import image6 from '../../assets/images/6.png'
-import 'swiper/css';
+import image7 from '../../assets/images/7.png'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 
 function BestChoice() {
+    var settings = {
+        dots: true,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        initialSlide: 1,
+        autoplay: true,
+        speed: 2000,
+        autoplaySpeed: 2000,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    };
+
     const blog = [
         {
             id: 1,
@@ -44,7 +83,7 @@ function BestChoice() {
         },
         {
             id: 6,
-            image: <img src={image6} alt="" class="w-full h-48 object-cover" />,
+            image: <img src={image3} alt="" class="w-full h-48 object-cover" />,
             heading: "Hive 68 - Hotel and Resorts ",
             content: "Hive",
         },
@@ -52,45 +91,38 @@ function BestChoice() {
     return (
         <>
 
-            <div className='my-4'>
+            <div className='my-10'>
                 <h4 className='text-yellow-500 mx-10 text-4xl font-bold '>Best Choices</h4>
                 <h2 className='mx-10 text-4xl font-bold text-[#1f3e72]'>Popular Residencies</h2>
             </div>
-            <div className=' grid grid-rows-2 grid-flow-col gap-4 mx-10 overflow-hidden  '>
-                {
-                    blog.map(item => {
-                        return <div key={item.id}>
-                            <div className="max-w-md mx-auto bg-white rounded-md overflow-hidden shadow-md">
-                                <div>
-                                    {item.image}
+            <div className="slider-container ">
+                <Slider {...settings}>
+                    {
+                        blog.map(item => {
+
+
+                            return <div className='box' key={item.id}>
+                                <div className="mx-5  hover:bg-gradient-to-b from-[#ffffff00] to-[#88a0ff75]  hover:shadow-[0_35px_60px_-15px_rgba(136,160,255,0.21)] rounded ">
+                                    <div>
+                                        {item.image}
+                                    </div>
+                                    <div className="p-4">
+                                        <h2 className="text-2xl font-bold mb-2">{item.heading}</h2>
+                                        <p className="text-gray-700">{item.content}</p>
+                                    </div>
+
                                 </div>
-                                <div className="p-4">
-                                    <h2 className="text-xl font-bold mb-2">{item.heading}</h2>
-                                    <p className="text-gray-700">{item.content}</p>
-                                </div>
+
 
                             </div>
+                        })
 
 
-                        </div>
-                    })
-                }
+                    }
 
 
+                </Slider>
             </div>
-            {/* <Swiper
-                spaceBetween={50}
-                slidesPerView={3}
-                onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
-            >
-                <SwiperSlide>Slide 1</SwiperSlide>
-                <SwiperSlide>Slide 2</SwiperSlide>
-                <SwiperSlide>Slide 3</SwiperSlide>
-                <SwiperSlide>Slide 4</SwiperSlide>
-                
-            </Swiper> */}
-
         </>
     )
 }
